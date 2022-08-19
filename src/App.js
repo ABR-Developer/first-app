@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar title="LOGO HERE" aboutText="About"/>
-      <TextForm formHeading ="Student Table"/>
+      <TextForm formHeading ="Enter the text to Capitalize"/>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
