@@ -32,6 +32,9 @@ function App() {
     }
   }
 
+  // {setInterval(() => document.title = "Amazing Website" ,2000)}
+  // {setInterval(() => document.title = "Excellent Website" ,1500)}
+
   return (
     <>
       <NavBar title="LOGO HERE" aboutText="About" mode={colorMode} colorModeHandler={colorModeToggler} />
