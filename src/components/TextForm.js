@@ -5,11 +5,13 @@ export default function TextFom(props) {
   const handlerUpClick = ()=> {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Text has been converted into Upper case" , "success");
   };
 
   const handlerDownClick = ()=> {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Text has been converted into Upper case" , "primary");
   };
   
   const handlerOnChange = (event) => {
