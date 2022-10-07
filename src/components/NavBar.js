@@ -13,12 +13,12 @@ import React from 'react'
 // (impt + tab) ES7 extension snippet : following code will be generated
   //import PropTypes from 'prop-types'
   import PropTypes from 'prop-types'                  // importing propTypes 
-  
+  import {Link} from 'react-router-dom'
   export default function NavBar(props) {
     return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>     {/*adding template literal*/}
-        <a className="navbar-brand" href="/">{props.title}</a>            {/* using props */}
+        <Link className="navbar-brand" to="/">{props.title}</Link>            {/* using props */}
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -26,13 +26,16 @@ import React from 'react'
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+              <Link className="nav-link" to="/"> Home </Link>
+              {/* <a className="nav-link" href="/"> Home <span className="sr-only">(current)</span></a> */}
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">{props.aboutText}</a>            {/* using props */}
+              <Link className="nav-link" to="/about"> {props.aboutText} </Link>
+              {/* <a className="nav-link" href="/">{props.aboutText}</a>            using props */}
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <Link className="nav-link" to="/text-form"> Text Form </Link>
+              {/* <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,10 +43,10 @@ import React from 'react'
                 <a className="dropdown-item" href="/">Another action</a>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="/">Something else here</a>
-              </div>
+              </div> */}
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" href="/">Disabled</a>
+              {/* <a className="nav-link disabled" href="/">Disabled</a> */}
             </li>
           </ul>
           <div className='form-check form-switch'>
