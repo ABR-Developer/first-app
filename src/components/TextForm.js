@@ -13,6 +13,24 @@ export default function TextFom(props) {
     setText(newText);
     props.showAlert("Text has been converted into Upper case" , "primary");
   };
+
+  const handlerClearText = ()=> {
+    setText("");
+    props.showAlert("Text Cleared" , "primary");
+  };
+
+  const handlerCopyText = ()=> {
+    // var selecedText = text;
+    // selecedText.select();
+    // navigator.clipboard.writeText(selecedText.value);
+    props.showAlert("Text Copied" , "primary");
+  };
+
+  const handlerRemoveExtraSpaces = ()=> {
+    var newText = text.split(/[ ]+/);             
+    setText(newText.join(" "))
+    props.showAlert("Removed Extra Spaces" , "primary");
+  };
   
   const handlerOnChange = (event) => {
     setText(event.target.value);
@@ -31,10 +49,14 @@ export default function TextFom(props) {
         {/* Donot use form tag otherwise your page will reload */}
           <div className="form-group ">
             <textarea className={`form-control bg-${props.mode === 'light' ? 'dark' : 'light'} text-${props.mode === 'light' ? 'light' : 'dark'}`} value = {text} onChange={handlerOnChange} id="textarea" rows="8"></textarea>
+            {/* <textarea className={`form-control bg-${props.mode === 'light' ? 'dark' : 'light'} text-${props.mode === 'light' ? 'light' : 'dark'}`} style={{caretColor: "red"}} value = {text} onChange={handlerOnChange} id="textarea" rows="8"></textarea> */}
           </div>
           <div className="form-group">
-            <button className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerUpClick}>Change to Upper case</button>
-            <button className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerDownClick}>Change to Lower case</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerUpClick}>Change to Upper case</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerDownClick}>Change to Lower case</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerClearText}>Clear Text</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerCopyText}>Copy Text</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerRemoveExtraSpaces}>Remove Extra Spaces</button>
           </div>
       </div>
       <div className="container my-3">
@@ -42,10 +64,10 @@ export default function TextFom(props) {
           Text Summary
         </h1>
         <fieldset>
-          <p>{text.split(" ").length - 1} words and {text.length} characters</p>
-          <p>{(text.split(" ").length - 1)* 0.008} Minutes to read.</p>
-          <p>{((text.split(" ").length -1 )* 0.008)*60} Seconds to read.</p>
-          <p>{text.length > 0 ? text : "Enter Your Text in the above box to preview it."}</p>
+          <p>{text.split(" ").filter((element) => element.length !== 0).length} words and {text.length} characters</p>
+          <p>{text.split(" ").filter((element) => element.length !== 0).length * 0.008} Minutes to read.</p>
+          <p>{text.split(" ").filter((element) => element.length !== 0).length * 0.008 * 60} Seconds to read.</p>
+          <p>{text.length > 0 ? text : "Nothing to preview...!"}</p>
         </fieldset>
       </div>
     </div>
