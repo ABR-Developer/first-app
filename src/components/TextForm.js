@@ -1,5 +1,4 @@
-// import React from 'react'                              // to import react
-import React, { useState } from "react"                      // import React hook useState                      
+import React, { useState } from "react"                      // import react + a react hook useState from React                      
 
 export default function TextFom(props) {
   const handlerUpClick = ()=> {
@@ -20,9 +19,7 @@ export default function TextFom(props) {
   };
 
   const handlerCopyText = ()=> {
-    // var selecedText = text;
-    // selecedText.select();
-    // navigator.clipboard.writeText(selecedText.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Text Copied" , "primary");
   };
 
@@ -49,7 +46,6 @@ export default function TextFom(props) {
         {/* Donot use form tag otherwise your page will reload */}
           <div className="form-group ">
             <textarea className={`form-control bg-${props.mode === 'light' ? 'dark' : 'light'} text-${props.mode === 'light' ? 'light' : 'dark'}`} value = {text} onChange={handlerOnChange} id="textarea" rows="8"></textarea>
-            {/* <textarea className={`form-control bg-${props.mode === 'light' ? 'dark' : 'light'} text-${props.mode === 'light' ? 'light' : 'dark'}`} style={{caretColor: "red"}} value = {text} onChange={handlerOnChange} id="textarea" rows="8"></textarea> */}
           </div>
           <div className="form-group">
             <button disabled={text.length === 0} className={`btn btn-${props.mode === 'light' ? '' : 'outline-'}primary m-2`} onClick={handlerUpClick}>Change to Upper case</button>
@@ -64,7 +60,7 @@ export default function TextFom(props) {
           Text Summary
         </h1>
         <fieldset>
-          <p>{text.split(" ").filter((element) => element.length !== 0).length} words and {text.length} characters</p>
+          <p>{text.split(/\s+/).filter((element) => element.length !== 0).length} words and {text.length} characters</p>
           <p>{text.split(" ").filter((element) => element.length !== 0).length * 0.008} Minutes to read.</p>
           <p>{text.split(" ").filter((element) => element.length !== 0).length * 0.008 * 60} Seconds to read.</p>
           <p>{text.length > 0 ? text : "Nothing to preview...!"}</p>

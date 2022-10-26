@@ -33,9 +33,6 @@ function App() {
     }
   };
 
-  // {setInterval(() => document.title = "Amazing Website" ,2000)}
-  // {setInterval(() => document.title = "Excellent Website" ,1500)}
-
   return (
     <div className="App">
       <Router>
@@ -80,33 +77,7 @@ function App() {
               />
             }
           />
-          {/* <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/text-form">
-            <TextForm
-              formHeading="Enter the text to Capitalize"
-              mode={colorMode}
-              showAlert={showAlert}
-            />
-          </Route> */}
         </Routes>
-        {/* <div>
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div> */}
       </Router>
     </div>
   );
