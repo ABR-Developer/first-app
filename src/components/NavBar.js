@@ -49,16 +49,9 @@ import React from 'react'
               {/* <a className="nav-link disabled" href="/">Disabled</a> */}
             </li>
           </ul>
-          <div className="bg-primary rounded mx-2" onClick={() => props.colorModeHandler('primary')} style={{height : "30px", width : "30px", cursor : 'pointer'}}></div>
-          <div className="bg-success rounded mx-2" onClick={() => props.colorModeHandler('success')} style={{height : "30px", width : "30px", cursor : 'pointer'}}></div>
-          <div className="bg-danger rounded mx-2" onClick={() => props.colorModeHandler('danger')} style={{height : "30px", width : "30px", cursor : 'pointer'}}></div>
-          <div className="bg-warning rounded mx-2" onClick={() => props.colorModeHandler('warning')} style={{height : "30px", width : "30px", cursor : 'pointer'}}></div>
           <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
-          {/* <div className='form-check form-switch'> */}
-            <input className='form-check-input' onClick={() => props.colorModeHandler(null)} type="checkbox" id="flexSwitchCheckDefault"/>
-            {/* <input className='form-check-input' onClick={props.colorModeHandler} type="checkbox" id="flexSwitchCheckDefault"/> */}
-            <label className='form-check-label' htmlFor='flexSwitchCheckDefault'>Toggle Mode</label>
-            {/* <label className={`form-check-label text-${props.mode === 'light' ? 'dark' : 'light'}`} htmlFor='flexSwitchCheckDefault'>{`Enable ${props.mode === 'light' ? 'dark' : 'light'} Mode`}</label> */}
+            <input className='form-check-input' onClick={props.colorModeHandler} type="checkbox" id="flexSwitchCheckDefault"/>
+            <label className={`form-check-label text-${props.mode === 'light' ? 'dark' : 'light'}`} htmlFor='flexSwitchCheckDefault'>{`Enable ${props.mode === 'light' ? 'dark' : 'light'} Mode`}</label>
           </div>
           <form className="form-inline my-2 my-lg-0">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>

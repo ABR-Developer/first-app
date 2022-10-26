@@ -20,18 +20,8 @@ function App() {
     setTimeout(() => setAlert(null), 1000);
   };
 
-  const removeBodyColor = () => {
-    document.body.classList.remove('bg-light');
-    document.body.classList.remove('bg-primary');
-    document.body.classList.remove('bg-success');
-    document.body.classList.remove('bg-danger');
-    document.body.classList.remove('bg-warning');
-  }
-
-  const colorModeToggler = (cls) => {
+  const colorModeToggler = () => {
     // colorMode === 'light' ? setColorMode('dark') : setColorMode('light');
-    removeBodyColor();
-    document.body.classList.add('bg-' + cls);
     if (colorMode === "light") {
       setColorMode("dark");
       document.body.style.backgroundColor = "black";
